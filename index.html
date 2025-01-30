@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignación de Ministros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Servicios</h1>
+        <span id="toggleTheme" class="theme-icon sun"></span>
+    </header>
+    <main>
+        <button id="admin-btn">Admin</button>
+        <button id="guest-btn">Invitado</button>
+
+        <!-- Modal de Inicio de Sesión -->
+        <div id="admin-login-modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2>Iniciar Sesión</h2>
+                <label for="admin-email">Correo:</label>
+                <input type="email" id="admin-email">
+                <label for="admin-password">Contraseña:</label>
+                <input type="password" id="admin-password">
+                <button id="login-btn">Iniciar Sesión</button>
+            </div>
+        </div>
+
+        <!-- Sección de Administrador -->
+        <section id="admin-section" class="hidden">
+            <h2>Administrador</h2>
+
+            <!-- Contenedor para entradas de datos -->
+            <div class="admin-inputs">
+                <h3>Agregar Servicio o Evento</h3>
+                <label for="minister-name">Ministro Principal:</label>
+                <input type="text" id="minister-name" placeholder="Nombre del ministro principal">
+
+                <label for="support-names">Apoyos (separados por coma):</label>
+                <input type="text" id="support-names" placeholder="Ejemplo: Juan, Pedro, Lucas">
+
+                <label for="musician-names">Músicos (separados por coma):</label>
+                <input type="text" id="musician-names" placeholder="Ejemplo: María, José, David">
+
+                <label for="service-date">Fecha del Servicio:</label>
+                <input type="date" id="service-date">
+
+                <label for="event-description">Descripción del Evento (opcional):</label>
+                <textarea id="event-description" rows="3" placeholder="Ingresa la descripción del evento..."></textarea>
+            </div>
+
+            <!-- Contenedor para botones de acciones -->
+            <div class="admin-actions">
+                <button id="assign-btn">Asignar Día</button>
+                <button id="delete-btn">Borrar Día</button>
+                <button id="logout-btn">Cerrar Sesión</button>
+            </div>
+
+            <!-- Contenedor para vista previa -->
+            <div id="admin-preview">
+                <h3>Vista Previa</h3>
+                <div id="admin-result">
+                    <!-- Aquí se mostrarán los eventos asignados -->
+                </div>
+            </div>
+
+            <!-- Formulario para borrar evento -->
+            <div id="delete-event-section">
+                <h3>Borrar Evento</h3>
+                <label for="delete-service-date">Seleccionar Día del Evento a Borrar:</label>
+                <input type="date" id="delete-service-date">
+                <button id="show-preview-btn">Mostrar Evento</button>
+            </div>
+            <div id="event-preview-to-delete" style="display: none;">
+                <h3>Evento Seleccionado para Borrar:</h3>
+                <div id="event-to-delete-details">
+                    <!-- Vista previa del evento seleccionado para borrar -->
+                </div>
+                <button id="confirm-delete-btn">Confirmar Borrar</button>
+            </div>
+        </section>
+
+        <!-- Sección de Invitados -->
+        <section id="guest-section" class="hidden">
+            <h2>Invitado</h2>
+            <label for="guest-search-date">Buscar por Fecha:</label>
+            <input type="date" id="guest-search-date">
+            <button id="guest-search-btn">Buscar</button>
+            <div id="guest-preview">
+                <h3>Vista Previa</h3>
+                <div id="guest-result">
+                    <!-- Resultados para los invitados -->
+                </div>
+                <div id="guest-events">
+                    <h4>Eventos Generales</h4>
+                    <ul id="event-list">
+                        <!-- Lista de eventos generales -->
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
